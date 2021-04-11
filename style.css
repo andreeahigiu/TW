@@ -1,6 +1,6 @@
-/* body {
+body {
     margin: 0;
-} */
+}
 
 .sticky-header {
     display: flex;
@@ -10,23 +10,25 @@
     top: 0;
     left: 0;
     height: 3em;
-    width: 100%;
+    width: 100%
+}
+
+.logo-header {
+    padding-left: 1.5em;
 }
 
 .home-btn {
-    width: auto;
     margin-right: 1.5em;
     padding-top: 7px;
     padding-bottom: 7px;
     height: 1.8em;
-    width: auto
+    width: auto;
 }
 
 .landing-page {
     background-image: url("landing-page.jpg");
     margin-top: 1em;
     height: 100vh;
-    width: 100%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -91,8 +93,4 @@ footer {
 
 .documentatie a:hover {
     text-decoration: underline;
-}
-
-.logo-header {
-    padding-left: 1.5em;
 }
