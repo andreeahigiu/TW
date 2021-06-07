@@ -13,8 +13,8 @@ public class StudiesCategory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID studiesID;
 
-    private int without;
-    private int primary;
+    private int withoutSchool;
+    private int primarySchool;
     private int middleSchool;
     private int highSchool;
     private int postSecondary;
@@ -30,19 +30,19 @@ public class StudiesCategory {
     }
 
     public int getWithout() {
-        return without;
+        return withoutSchool;
     }
 
     public void setWithout(int without) {
-        this.without = without;
+        this.withoutSchool = without;
     }
 
     public int getPrimary() {
-        return primary;
+        return primarySchool;
     }
 
     public void setPrimary(int primary) {
-        this.primary = primary;
+        this.primarySchool = primary;
     }
 
     public int getMiddleSchool() {

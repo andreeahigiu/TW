@@ -14,15 +14,15 @@ public class CountyEntity {
     private String countyName;
     private int total;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE})
     private AgeCategory ageCategory;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE})
     private CompensationCategory compensationCategory;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE})
     private EnvironmentCategory environmentCategory;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE})
     private GenderCategory genderCategory;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE})
     private StudiesCategory studiesCategory;
 
     public UUID getCountyID() {

@@ -18,7 +18,6 @@ public class EntitiesManagement {
     }
 
     public EntityManagerFactory getEntityManagerFactory() {
-
         if (emf == null)
             createEntityManagerFactory();
         return emf;
@@ -26,7 +25,7 @@ public class EntitiesManagement {
 
 
     protected void createEntityManagerFactory() {
-        emf = Persistence.createEntityManagerFactory("TWdbPU");
+        this.emf = Persistence.createEntityManagerFactory("TWdbPU");
     }
 
 

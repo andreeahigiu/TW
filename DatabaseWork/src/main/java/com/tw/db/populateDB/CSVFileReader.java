@@ -39,7 +39,7 @@ public class CSVFileReader {
 
     private AgeCategory retrievedAge(String[] line){
         AgeCategory ageCategory = new AgeCategory();
-        ageCategory.setAgesID(UUID.randomUUID());
+        //ageCategory.setAgesID(UUID.randomUUID());
         ageCategory.setUnder25(Integer.parseInt(line[2]));
         ageCategory.setBetween25and29(Integer.parseInt(line[3]));
         ageCategory.setBetween30and39(Integer.parseInt(line[4]));
@@ -51,7 +51,7 @@ public class CSVFileReader {
 
     private CompensationCategory retrievedCompensation(String[] line){
         CompensationCategory compensationCategory = new CompensationCategory();
-        compensationCategory.setCompensationID(UUID.randomUUID());
+        //compensationCategory.setCompensationID(UUID.randomUUID());
         compensationCategory.setWithCompensation(Integer.parseInt(line[4]));
         compensationCategory.setWithoutCompensation(Integer.parseInt(line[5]));
         return compensationCategory;
@@ -59,7 +59,7 @@ public class CSVFileReader {
 
     private EnvironmentCategory retrievedEnvironment(String[] line){
         EnvironmentCategory environmentCategory = new EnvironmentCategory();
-        environmentCategory.setEnvironmentID(UUID.randomUUID());
+        //environmentCategory.setEnvironmentID(UUID.randomUUID());
         environmentCategory.setTotalUrban(Integer.parseInt(line[4]));
         environmentCategory.setWomenUrban(Integer.parseInt(line[5]));
         environmentCategory.setMenUrban(Integer.parseInt(line[6]));
@@ -71,7 +71,7 @@ public class CSVFileReader {
 
     private GenderCategory retrievedGender(String[] line){
         GenderCategory genderCategory = new GenderCategory();
-        genderCategory.setGenderID(UUID.randomUUID());
+        //genderCategory.setGenderID(UUID.randomUUID());
         genderCategory.setWomen(Integer.parseInt(line[2]));
         genderCategory.setMen(Integer.parseInt(line[3]));
         return genderCategory;
@@ -79,7 +79,7 @@ public class CSVFileReader {
 
     private StudiesCategory retrievedStudies(String[] line){
         StudiesCategory studiesCategory = new StudiesCategory();
-        studiesCategory.setStudiesID(UUID.randomUUID());
+        //studiesCategory.setStudiesID(UUID.randomUUID());
         studiesCategory.setWithout(Integer.parseInt(line[2]));
         studiesCategory.setPrimary(Integer.parseInt(line[3]));
         studiesCategory.setMiddleSchool(Integer.parseInt(line[4]));
@@ -105,48 +105,37 @@ public class CSVFileReader {
         String fileToOpen = folderPath + "varste.csv";
         CSVReader ageReader = new CSVReader(new FileReader(fileToOpen));
         String[] nextAgeLine;
-        int ageLineNumber = 0;
-        if((nextAgeLine = ageReader.readNext())!= null){
-            ageLineNumber ++;
-        }
+        ageReader.readNext();
 
         fileToOpen = folderPath + "rata.csv";
         CSVReader genderReader = new CSVReader(new FileReader(fileToOpen));
         String[] nextGenderLine;
-        int genderLineNumber = 0;
-        if((nextGenderLine = genderReader.readNext())!= null){
-            genderLineNumber ++;
-        }
+        genderReader.readNext();
 
         fileToOpen = folderPath + "medii.csv";
         CSVReader environmentReader = new CSVReader(new FileReader(fileToOpen));
         String[] nextEnvironmentLine;
-        int environmentLineNumber = 0;
-        if((nextEnvironmentLine = environmentReader.readNext())!= null){
-            environmentLineNumber ++;
-        }
+        environmentReader.readNext();
 
         fileToOpen = folderPath + "nivel-educatie.csv";
         CSVReader studiesReader = new CSVReader(new FileReader(fileToOpen));
         String[] nextStudiesLine;
-        int studiesLineNumber = 0;
-        if((nextStudiesLine = studiesReader.readNext())!= null){
-            studiesLineNumber ++;
-        }
+        studiesReader.readNext();
 
         PeriodEntity periodEntity = new PeriodEntity();
-        periodEntity.setPeriodID(UUID.randomUUID());
+        //periodEntity.setPeriodID(UUID.randomUUID());
         periodEntity.setYear(year);
         periodEntity.setMonth(month);
 
         List<CountyEntity> countyList = new ArrayList<>();
-        CountyEntity countyEntity = new CountyEntity();
+
 
         while (((nextAgeLine = ageReader.readNext()) != null) &&
                 ((nextGenderLine = genderReader.readNext()) != null) &&
                 ((nextEnvironmentLine = environmentReader.readNext()) != null) &&
                 ((nextStudiesLine = studiesReader.readNext()) != null)){
-            countyEntity.setCountyID(UUID.randomUUID());
+            //countyEntity.setCountyID(UUID.randomUUID());
+            CountyEntity countyEntity = new CountyEntity();
             countyEntity.setCountyName(nextAgeLine[0]);
             AgeCategory ageCategory = retrievedAge(nextAgeLine);
             CompensationCategory compensationCategory = retrievedCompensation(nextGenderLine);
@@ -160,7 +149,14 @@ public class CSVFileReader {
             countyEntity.setGenderCategory(genderCategory);
             countyEntity.setStudiesCategory(studiesCategory);
 
-            saveCategories(ageCategory,compensationCategory,environmentCategory,genderCategory,studiesCategory, countyEntity);
+            //saveCategories(ageCategory,compensationCategory,environmentCategory,genderCategory,studiesCategory, countyEntity);
+
+            AgeRepository.create(ageCategory);
+            CompensationRepository.create(compensationCategory);
+            EnvironmentRepository.create(environmentCategory);
+            GenderRepository.create(genderCategory);
+            StudiesRepository.create(studiesCategory);
+            CountyRepository.create(countyEntity);
 
             countyList.add(countyEntity);
         }
