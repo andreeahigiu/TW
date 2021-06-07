@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="TWdbPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+        <class>com.tw.db.entities.AgeCategory</class>
+        <class>com.tw.db.entities.CompensationCategory</class>
+        <class>com.tw.db.entities.CountyEntity</class>
+        <class>com.tw.db.entities.EnvironmentCategory</class>
+        <class>com.tw.db.entities.GenderCategory</class>
+        <class>com.tw.db.entities.PeriodEntity</class>
+        <class>com.tw.db.entities.StudiesCategory</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="postgres://xuepxenxehvqij:281e949b84f332cd8b00e667008a5b18b055c6e6acdc707712b508077503447f@ec2-54-220-170-192.eu-west-1.compute.amazonaws.com:5432/dao76af3aukgsk"/>
+            <property name="javax.persistence.jdbc.user" value="xuepxenxehvqij"/>
+            <property name="javax.persistence.jdbc.password" value="281e949b84f332cd8b00e667008a5b18b055c6e6acdc707712b508077503447f"/>
+        </properties>
+    </persistence-unit>
+</persistence>
