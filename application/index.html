@@ -27,12 +27,10 @@
     </div>
 
     <main>
-        <section class="intro">
+        <!-- <section class="intro">
             <img src="assets/selection.svg" alt="selection icon" id="selection_icon" /> Selectati elementele dupa care se va face filtrarea datelor:
         </section>
 
-
-        <!-- <div id="tip_cautare"> -->
         <section class="cautare_generala">
             Căutare generală
         </section>
@@ -43,11 +41,30 @@
 
         <section class="cautare_avansata">
             Căutare avansată
-        </section>
+        </section> -->
         <!-- </div> -->
 
+        <form id="employment-search" action="./charts.php" method="GET">
+            <section class="intro">
+                <img src="assets/selection.svg" alt="selection icon" id="selection_icon" /> Selectati elementele dupa care se va face filtrarea datelor:
+            </section>
+    
+    
+            <!-- <div id="tip_cautare"> -->
+            <section class="cautare_generala">
+                Căutare generală
+            </section>
+    
+            <section class="compara" onclick="showFilter()">
+                <img src="assets/add.svg" alt="plus icon" id="plus_icon" /> Compara cu
+            </section>
+    
+            <section class="cautare_avansata">
+                Căutare avansată
+            </section>
+
         <section class="sectionSelect">
-            <form id="employment-search" action="./charts.php" method="GET">
+            
 
                 <div class="fields-select">
                     <select name="Judet">

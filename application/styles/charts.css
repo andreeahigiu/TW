@@ -178,8 +178,10 @@ main {
     padding-right: 30px;
 }
 
+
 .tab-content {
     border: 2px solid #A2B29F;
+  
 }
 
 .tab.active {

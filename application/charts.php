@@ -104,14 +104,14 @@
 
             <div class="tab-content">
                 <div id="chart1" data-tab-content class="active">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <canvas id="myChart" width="400" height="300"></canvas>
                 </div>
                 <div id="chart2" data-tab-content>
-                    <canvas id="secondChart" width="400" height="400"></canvas>
+                    <canvas id="secondChart" width="400" height="300"></canvas>
                 </div>
                 <div id="chart3" data-tab-content>
                     <p>This is the chart3</p>
-                    <canvas id="thirdChart" width="400" height="400"></canvas>
+                    <canvas id="thirdChart" width="400" height="300"></canvas>
                 </div>
             </div>
         </section>
