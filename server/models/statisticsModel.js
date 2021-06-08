@@ -26,7 +26,9 @@ function findAll() {
                 done();
                 if (err) {
                     console.log(err.stack);
+                    
                 }
+               
                 resolve(res)
             });
         });
@@ -72,34 +74,17 @@ function findBy(county, monthVar, yearVar, table) {
                     console.log("NASOL" + county.toUpperCase())
                     console.log(err.stack);
                 }
+                console.log("let's see" + county)
                 resolve(res)
+                
             });
         });
      })
 }
 
-function findAgeBy(county, monthVar, yearVar) {
-    return new Promise((resolve, reject) => {
 
-        const query = `SELECT * FROM agecategory WHERE agesid IN 
-                        (SELECT agecategory_agesid FROM countyentity 
-                            WHERE countyname = county and month = monthVar and year = yearVar`;
-    
-     pool.connect((err, client, done) => {
-            if (err) throw err;
-            client.query(query, (err, res) => {
-                done();
-                if (err) {
-                    console.log(err.stack);
-                }
-                resolve(res)
-            });
-        });
-     })
-}
 
 module.exports = {
     findAll,
-    findAgeBy,
     findBy
 }
