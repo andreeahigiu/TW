@@ -17,14 +17,14 @@
 <body>
     <header class="sticky-header">
         <img src="logo.png" class="logo-header" alt="logo">
-        <a href="index.php">
+        <a href="index.html">
             <img src="home-btn.png" class="home-btn" alt="home-btn">
         </a>
 
     </header>
 
     <div class="back-btn">
-        <a href="index.php">
+        <a href="index.html">
             <img src="back.png" alt="back">
         </a>
     </div>
