@@ -1,9 +1,5 @@
 const Product = require('../models/statisticsModel')
 
-// const { getPostData } = require('../utils')
-
-// @desc    Gets All Products
-// @route   GET /api/products
 async function getStatistics(req, res) {
     try {
         const products = await Product.findAll()
