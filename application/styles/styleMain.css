@@ -16,31 +16,7 @@ button[type="submit"] {
     box-shadow: 0px 3px 15px -6px #ccc;
 }
 
-label {
-    display: flex;
-    justify-content: space-between;
-}
 
-.checkbox_class {
-    display: none;
-}
-
-#check_div1 {
-    display: flex;
-    flex-direction: row;
-}
-
-input[type="checkbox"]:checked+label {
-    border-style: solid;
-    border: #798777;
-    border-width: 20px;
-    background-color: #a2b29f;
-}
-
-label:hover {
-    background: #eee;
-    cursor: pointer;
-}
 
 button[type="submit"] {
     background-color: #A2B29F;
@@ -220,3 +196,45 @@ main {
         grid-column: 1;
     }
 }
+
+
+/* The styled radio toolbar */
+.radio-toolbar {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .radio-toolbar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+  
+  .radio-toolbar label {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 0 10px;
+    display: block;
+    font-size: medium;
+    box-shadow: 0px 3px 15px -6px #ccc;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .radio-toolbar label:hover {
+    background: #eee;
+    cursor: pointer;
+  }
+  
+  .radio-toolbar input[type="radio"]:focus + label {
+      border: 2px dashed #444;
+  }
+  
+  .radio-toolbar input[type="radio"]:checked + label {
+    border-style: solid;
+    border: #798777;
+    border-width: 20px;
+    background-color: #a2b29f;
+  }

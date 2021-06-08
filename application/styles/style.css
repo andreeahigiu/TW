@@ -26,7 +26,7 @@ body {
 }
 
 .landing-page {
-    background-image: url("landing-page.jpg");
+    background-image: url("../assets/landing-page.jpg");
     margin-top: 1em;
     height: 100vh;
     background-attachment: fixed;

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./charts.css">
+    <link rel="stylesheet" href="./styles/charts.css">
     <link rel="shortcut icon" href="#">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
     <script src="script.js" defer></script>
@@ -16,16 +16,16 @@
 
 <body>
     <header class="sticky-header">
-        <img src="logo.png" class="logo-header" alt="logo">
+        <img src="assets/logo.png" class="logo-header" alt="logo">
         <a href="index.html">
-            <img src="home-btn.png" class="home-btn" alt="home-btn">
+            <img src="assets/home-btn.png" class="home-btn" alt="home-btn">
         </a>
 
     </header>
 
     <div class="back-btn">
         <a href="index.html">
-            <img src="back.png" alt="back">
+            <img src="assets/back.png" alt="back">
         </a>
     </div>
 
@@ -71,23 +71,23 @@
                 <h4> Filtre: </h4>
                 <div class="searched-items--filters">
                     <div class="age-group">
-                        <img src="person.png" alt="person">
+                        <img src="assets/person.png" alt="person">
                         <p>Grupe de vârstă</p>
                     </div>
                     <div class="gender-group">
-                        <img src="gender.png" alt="gender">
+                        <img src="assets/gender.png" alt="gender">
                         <p>Gen</p>
                     </div>
                     <div class="education-group">
-                        <img src="education.png" alt="education">
+                        <img src="assets/education.png" alt="education">
                         <p>Nivel de educație</p>
                     </div>
                     <div class="residence-group">
-                        <img src="residence.png" alt="residence">
+                        <img src="assets/residence.png" alt="residence">
                         <p>Medii de rezidență</p>
                     </div>
                     <div class="income-group">
-                        <img src="income.png" alt="income">
+                        <img src="assets/income.png" alt="income">
                         <p>Tip de indemnizare</p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
         <div class="save-chart">
             <div class="save-btn" onclick="showDiv()">
                 <p>Salvează</p>
-                <img src="save.png" alt="save">
+                <img src="assets/save.png" alt="save">
             </div>
 
             <div class="save-options" style="display:none;" id="save--options">
@@ -139,7 +139,7 @@
     </main>
 
     <footer>
-        <img src="logo.png" class="logo-footer" alt="logo">
+        <img src="assets/logo.png" class="logo-footer" alt="logo">
         <section class="contact">
             <h3>Contact</h3>
             <div class="contact-person">
@@ -153,14 +153,14 @@
         </section>
         <section class="documentatie">
             <a href="documentation.html">
-                <img src="hyperlink.svg" alt="hyperlink" height="15" width="15">
+                <img src="assets/hyperlink.svg" alt="hyperlink" height="15" width="15">
                 <h3>Documentație</h3>
             </a>
             <p>
                 Această aplicație constituie proiectul de la materia Tehnologii Web.
             </p>
             <a href=" https://www.info.uaic.ro/ ">
-                <img src="hyperlink.svg" alt="hyperlink" height="15" width="15"> Facultatea de informatică Iași
+                <img src="assets/hyperlink.svg" alt="hyperlink" height="15" width="15"> Facultatea de informatică Iași
             </a>
         </section>
     </footer>

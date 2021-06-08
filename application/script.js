@@ -16,6 +16,14 @@ tabs.forEach(tab => {
     })
 })
 
+//function for selecting only one checkbox at a time
+function selectOnlyThis(id) {
+    for (var i = 1;i <= 5; i++)
+    {
+        document.getElementById("Check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
 
 function showDiv() {
     var x = document.getElementById('save--options');

@@ -6,17 +6,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./styleMain.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/styleMain.css">
     <script src="script.js" defer></script>
     <title>UnWe</title>
 </head>
 
 <body>
     <header class="sticky-header">
-        <img src="logo.png" class="logo-header" alt="logo">
+        <img src="assets/logo.png" class="logo-header" alt="logo">
         <a href="index.html">
-            <img src="home-btn.png" class="home-btn" alt="home">
+            <img src="assets/home-btn.png" class="home-btn" alt="home">
         </a>
 
     </header>
@@ -28,7 +28,7 @@
 
     <main>
         <section class="intro">
-            <img src="selection.svg" alt="selection icon" id="selection_icon" /> Selectati elementele dupa care se va face filtrarea datelor:
+            <img src="assets/selection.svg" alt="selection icon" id="selection_icon" /> Selectati elementele dupa care se va face filtrarea datelor:
         </section>
 
 
@@ -38,7 +38,7 @@
         </section>
 
         <section class="compara" onclick="showFilter()">
-            <img src="add.svg" alt="plus icon" id="plus_icon" /> Compara cu
+            <img src="assets/add.svg" alt="plus icon" id="plus_icon" /> Compara cu
         </section>
 
         <section class="cautare_avansata">
@@ -207,27 +207,28 @@
         <section class="section3">
             <div id="fields-check">
 
-                <input type="checkbox" class="checkbox_class" id="check1" name="check1" />
-                <label for="check1">Grupe de vârstă </label>
+                <div class="radio-toolbar">
 
+                    <input type="radio" id="radioOne" name="radioBox" value="age" checked>
+                    <label for="radioOne">Grupe de vârstă </label>
+                
+                    <input type="radio" id="radioTwo" name="radioBox" value="gender">
+                    <label for="radioTwo">Gen </label>
+                
+                    <input type="radio" id="radioThree" name="radioBox" value="education">
+                    <label for="radioThree">Nivel de educație </label> 
 
-                <input type="checkbox" class="checkbox_class" id="check2" name="check2" />
-                <label for="check2">Gen </label>
+                    <input type="radio" id="radioFour" name="radioBox" value="home">
+                    <label for="radioFour">Medii de rezidență </label> 
 
-
-                <input type="checkbox" class="checkbox_class" id="check3" name="check3" />
-                <label for="check3">Nivel de educație </label>
-
-
-                <input type="checkbox" class="checkbox_class" id="check4" name="check4" />
-                <label for="check4">Medii de rezidență </label>
-
-
-                <input type="checkbox" class="checkbox_class" id="check5" name="check5" />
-                <label for="check5">Tip de îndemnizare </label>
-
+                    <input type="radio" id="radioFive" name="radioBox" value="indemnization">
+                    <label for="radioFive">Tip de îndemnizare </label> 
+    
+                </div>
 
             </div>
+
+
         </section>
         <!--section3-->
 
@@ -236,14 +237,14 @@
                 <p id="search_label">
                     Caută
                 </p>
-                <img src="search.svg" alt="search glass" id="search_glass"/>
+                <img src="assets/search.svg" alt="search glass" id="search_glass"/>
             </button>
         </section>
         </form>
     </main>
 
     <footer>
-        <img src="logo.png" class="logo-footer" alt="logo">
+        <img src="assets/logo.png" class="logo-footer" alt="logo">
         <section class="contact">
             <h3>Contact</h3>
             <div class="contact-person">
@@ -257,14 +258,14 @@
         </section>
         <section class="documentatie">
             <a href="documentation.html">
-                <img src="hyperlink.svg" height="15" width="15" alt="link_icon">
+                <img src="assets/hyperlink.svg" height="15" width="15" alt="link_icon">
                 <h3>Documentație</h3>
             </a>
             <p>
                 Această aplicație constituie proiectul de la materia Tehnologii Web.
             </p>
             <a href=" https://www.info.uaic.ro/ ">
-                <img src="hyperlink.svg" height="15" width="15" alt="link_icon"> Facultatea de informatică Iași
+                <img src="assets/hyperlink.svg" height="15" width="15" alt="link_icon"> Facultatea de informatică Iași
             </a>
         </section>
     </footer>
