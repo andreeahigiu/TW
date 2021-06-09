@@ -1,9 +1,16 @@
 const tabs = document.querySelectorAll('[data-tab-target]')
 const tabContents = document.querySelectorAll('[data-tab-content]')
 
+// window.onprogress = function() {
+//     sleep(2000);
+// }
+
 window.onload = function() {
+    //loadData();
     var users = JSON.parse(sessionStorage.getItem("users"));
     console.log(users);
+    sessionStorage.clear();
+
 }
 
 tabs.forEach(tab => {
