@@ -54,16 +54,16 @@ const server = http.createServer((req, res) => {
         const table = "studiescategory"
         getElement(req, res, county, month, year, table)
     } 
-    // else {
-    //     res.writeHead(404, { 'Content-Type': 'application/json' })
-    //     res.end(JSON.stringify({ message: 'Route Not Found' }))
-        
-    // }
     else if (req.method === 'OPTIONS') {
         res.writeHead(204,
             headers);
         res.end();
         return;
+    }
+    else {
+        res.writeHead(404, { 'Content-Type': 'application/json' })
+        res.end(JSON.stringify({ message: 'Route Not Found' }))
+        
     }
 })
 

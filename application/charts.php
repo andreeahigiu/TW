@@ -30,6 +30,9 @@
     </div>
 
     <main>
+    
+    <input type="hidden" id="myPhpValue" value="<?php $name = "Hello World";
+                                                                echo $name; ?>" />                                                            
         <section class="searched-items">
             <div class="searched-items--first">
                 <div class="searched-items-line">
@@ -41,6 +44,15 @@
                                 echo "<p>"  . $_GET["Judet"] . "</p>";
                             }
                         ?>
+                        <!-- input pentru a parsa variabila judet1 catre script.js -->
+                        <input type="hidden" id="county1" value="<?php
+                            $county1 = "unset";
+                            if(isset($_GET["Judet"])) {
+                                $county1 = $_GET["Judet"];  
+                            }
+                            echo $county1;
+                        ?>" />
+
                     </div>
                     <div class="searched-items--first--second">
                         <h4>Perioada1:</h4>
@@ -50,6 +62,17 @@
                                 echo "<p>"  . $_GET["perioada"] . "</p>";
                             }
                         ?>
+
+                        <!-- input pentru a parsa variabila perioada1 catre script.js -->
+                        <input type="hidden" id="period1" value="<?php
+                            $period1 = "unset";
+                            if(isset($_GET["perioada"])) {
+                                $period1 = $_GET["perioada"];  
+                            }
+                            echo $period1;
+                        ?>" />
+
+                        
                     </div>
                 </div>
                 <?php
@@ -65,8 +88,39 @@
                             }
                         echo "</div> </div>";
                 }
-                ?>             
+
+            
+                ?>  
+                
+                <!-- input pentru a parsa variabila judet2 catre script.js -->
+                <input type="hidden" id="county2" value="<?php
+                            $county2 = "unset";
+                            if(isset($_GET["Judet2"])) {
+                                $county2 = $_GET["Judet2"];  
+                            }
+                            echo $county2;
+                        ?>" />
+
+                <!-- input pentru a parsa variabila perioada2 catre script.js -->
+                <input type="hidden" id="period2" value="<?php
+                            $period2 = "unset";
+                            if(isset($_GET["perioada2"])) {
+                                $period2 = $_GET["perioada2"];  
+                            }
+                            echo $period2;
+                        ?>" />
+
+                 <!-- input pentru a parsa tipul de filtru catre script.js -->
+                 <input type="hidden" id="filter" value="<?php
+                            $filter = "unset";
+                            if(isset($_GET["radioBox"])) {
+                                $filter = $_GET["radioBox"];  
+                            }
+                            echo $filter;
+                        ?>" />               
             </div>
+            
+
             <div class="searched-items--second">
                 <h4> Filtre: </h4>
                 <div class="searched-items--filters">

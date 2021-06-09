@@ -1,53 +1,65 @@
 const tabs = document.querySelectorAll('[data-tab-target]')
 const tabContents = document.querySelectorAll('[data-tab-content]')
+var county1;
+var county2;
+var period1;
+var period2;
 
+var month1;
+var year1;
+var month2;
+var year2;
+var filter;
 
-// window.onprogress = function() {
-//     sleep(2000);
-// }
-
-// window.onload = function() {
-//     //loadData();
-//     //await loadData();
-//     var users = JSON.parse(sessionStorage.getItem("users"));
-//     console.log(users);
-//     sessionStorage.clear();
-
-// }
-
-
-// window.onload = function loadData() {
-
-
-//     var xhr = new XMLHttpRequest();
+//The way to get variables from php to this js
+function getVarFromPhp(){
     
-//     // xhr.open('GET', 'https://api.github.com/users', true);
-//     xhr.open('GET', 'http://localhost:5000/details/age/iasi/1/2021', true);
 
-//     xhr.onload = function() {
-//         if (this.status == 200) {
+    county1 = document.getElementById("county1").value;
+    county2 = document.getElementById("county2").value;
+    period1 = document.getElementById("period1").value;
+    period2 = document.getElementById("period2").value;
+    filter = document.getElementById("filter").value;
 
-//             var users = JSON.parse(this.responseText);
-//             console.log(users);
-           
-//         }
-//     }
+    var p1 = period1.split(" ");
+    var p2 = period2.split(" ");
 
-//     const headers = {
-//         "Access-Control-Allow-Origin": "*",
-//         "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
-//         "Access-Control-Max-Age": 2592000, 
-//         "Access-Control-Allow-Headers":"Origin, X-Requested-With, Content-Type, Accept"
-//       };
+    month1 = p1[0];
+    year1 = p1[1];
 
-//     xhr.setRequestHeader(200, headers);
+    month2 = p2[0];
+    year2 = p2[1];
 
-//     xhr.send();
+    var months = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
+    for(i=1; i <= months.length; i++){
+        if(month1 === months[i-1])
+            month1 = i;
+        if(month2 === months[i-1])
+            month2 = i;
 
-// };
+    }
 
-window.onload = async function getData(){
-    let url = 'http://localhost:5000/details/environment/iasi/1/2021';
+    console.log("this are the vars: " + county1 + "..." + county2 + "..." + period1 + "..." + period2 + "..." + filter);
+
+}
+
+window.onload = async function methodCalls(){
+    //method for assigning teh variables
+    getVarFromPhp();
+
+    //method for calling the api
+   getData1();
+   getData2();
+
+   checking();
+}
+
+async function getData1(){
+    // let url = 'http://localhost:5000/details/environment/iasi/1/2021';
+
+    let url = 'http://localhost:5000/details/' + filter + '/' + county1 + '/' + month1 +'/' + year1;
+
+    console.log("url1 composed of: " + filter + '/' + county1 + '/' + month1 +'/' + year1);
     const response = await fetch(url, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         headers: {
@@ -55,13 +67,46 @@ window.onload = async function getData(){
         }
         
     });
-    let data = await response.json();
-    console.log(data);
-    return data;
+    
+
+    let data1 = await response.json();
+
+    console.log(data1);
+
+    // calling some functions
+
+
+    return data1;
+}
+
+async function getData2(){
+    // let url = 'http://localhost:5000/details/environment/iasi/1/2021';
+    let url = 'http://localhost:5000/details/' + filter + '/' + county2 + '/' + month2 + '/' + year2;
+
+    console.log("url2 composed of: " + filter + '/' + county2 + '/' + month2 +'/' + year2);
+    const response = await fetch(url, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        
+    });
+    let data2 = await response.json();
+    console.log( data2);
+
+    // calling some functions
+
+
+    return data2;
+}
+
+function checking() {
+    console.log("just checking " + county2);
 }
 
 //intr-un async : var result = await getData();
 // !verificam daca mi-a dat rezultatul: cu console sau !=null
+
 
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
