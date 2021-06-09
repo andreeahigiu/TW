@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/styleMain.css">
-    <script src="script.js" defer></script>
+    <script src="modules/ajax.js" defer></script>
+    <script src="modules/indexScript.js" defer></script>
     <title>UnWe</title>
 </head>
 
@@ -48,23 +49,23 @@
             <section class="intro">
                 <img src="assets/selection.svg" alt="selection icon" id="selection_icon" /> Selectati elementele dupa care se va face filtrarea datelor:
             </section>
-    
-    
+
+
             <!-- <div id="tip_cautare"> -->
             <section class="cautare_generala">
                 Căutare generală
             </section>
-    
+
             <section class="compara" onclick="showFilter()">
                 <img src="assets/add.svg" alt="plus icon" id="plus_icon" /> Compara cu
             </section>
-    
+
             <section class="cautare_avansata">
                 Căutare avansată
             </section>
 
-        <section class="sectionSelect">
-            
+            <section class="sectionSelect">
+
 
                 <div class="fields-select">
                     <select name="Judet">
@@ -136,15 +137,15 @@
 
     </select>
                 </div>
-        </section>
-        <!--sectionSelect-->
+            </section>
+            <!--sectionSelect-->
 
 
-        <section class="sectionSelectCompare" style="display:none" id="selectCompare">
-            <!-- <form id="employment-search" action="./charts.php" method="GET"> -->
+            <section class="sectionSelectCompare" style="display:none" id="selectCompare">
+                <!-- <form id="employment-search" action="./charts.php" method="GET"> -->
 
-            <div class="fields-select">
-                <select name="Judet2">
+                <div class="fields-select">
+                    <select name="Judet2">
     <option value="" disabled selected>Județ</option>
     <option> Toate județele </option>
     <option> Alba </option>
@@ -193,7 +194,7 @@
     </select>
 
 
-                <select name="perioada2">
+                    <select name="perioada2">
         <option value="" disabled selected> Alege perioada </option>
         <option> Ianuarie 2020 </option>
         <option> Februarie 2020 </option>
@@ -212,51 +213,51 @@
         <option> Martie 2021 </option>
 
     </select>
-            </div>
-        </section>
-        <!--sectionSelectCompare-->
+                </div>
+            </section>
+            <!--sectionSelectCompare-->
 
-        <!-- div fields-select -->
+            <!-- div fields-select -->
 
-        <div class="horizontal_line1" id="lineCompare1"></div>
+            <div class="horizontal_line1" id="lineCompare1"></div>
 
 
-        <section class="section3">
-            <div id="fields-check">
+            <section class="section3">
+                <div id="fields-check">
 
-                <div class="radio-toolbar">
+                    <div class="radio-toolbar">
 
-                    <input type="radio" id="radioOne" name="radioBox" value="age" checked>
-                    <label for="radioOne">Grupe de vârstă </label>
-                
-                    <input type="radio" id="radioTwo" name="radioBox" value="gender">
-                    <label for="radioTwo">Gen </label>
-                
-                    <input type="radio" id="radioThree" name="radioBox" value="education">
-                    <label for="radioThree">Nivel de educație </label> 
+                        <input type="radio" id="radioOne" name="radioBox" value="age" checked>
+                        <label for="radioOne">Grupe de vârstă </label>
 
-                    <input type="radio" id="radioFour" name="radioBox" value="home">
-                    <label for="radioFour">Medii de rezidență </label> 
+                        <input type="radio" id="radioTwo" name="radioBox" value="gender">
+                        <label for="radioTwo">Gen </label>
 
-                    <input type="radio" id="radioFive" name="radioBox" value="indemnization">
-                    <label for="radioFive">Tip de îndemnizare </label> 
-    
+                        <input type="radio" id="radioThree" name="radioBox" value="education">
+                        <label for="radioThree">Nivel de educație </label>
+
+                        <input type="radio" id="radioFour" name="radioBox" value="home">
+                        <label for="radioFour">Medii de rezidență </label>
+
+                        <input type="radio" id="radioFive" name="radioBox" value="indemnization">
+                        <label for="radioFive">Tip de îndemnizare </label>
+
+                    </div>
+
                 </div>
 
-            </div>
 
+            </section>
+            <!--section3-->
 
-        </section>
-        <!--section3-->
-
-        <section class="submit_btn">
-            <button type="submit" name="cauta" value="Cauta"> 
+            <section class="submit_btn">
+                <button type="submit" name="cauta" id="submit_btn" value="Cauta"> 
                 <p id="search_label">
                     Caută
                 </p>
                 <img src="assets/search.svg" alt="search glass" id="search_glass"/>
             </button>
-        </section>
+            </section>
         </form>
     </main>
 

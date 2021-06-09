@@ -1,6 +1,10 @@
 const tabs = document.querySelectorAll('[data-tab-target]')
 const tabContents = document.querySelectorAll('[data-tab-content]')
 
+window.onload = function() {
+    var users = JSON.parse(sessionStorage.getItem("users"));
+    console.log(users);
+}
 
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -16,14 +20,6 @@ tabs.forEach(tab => {
     })
 })
 
-//function for selecting only one checkbox at a time
-function selectOnlyThis(id) {
-    for (var i = 1;i <= 5; i++)
-    {
-        document.getElementById("Check" + i).checked = false;
-    }
-    document.getElementById(id).checked = true;
-}
 
 function showDiv() {
     var x = document.getElementById('save--options');
@@ -31,17 +27,6 @@ function showDiv() {
         x.style.display = "block";
     } else {
         x.style.display = "none";
-    }
-}
-
-function showFilter() {
-    var x = document.getElementById("selectCompare");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        x.style.marginBottom = "45px";
-    } else {
-        x.style.display = "none";
-        x.style.marginBottom = "45px";
     }
 }
 
