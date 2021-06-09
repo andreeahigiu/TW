@@ -3,6 +3,19 @@ const { getStatistics, getElement } = require('./controllers/statisticsControlle
 
 
 const server = http.createServer((req, res) => {
+    // res.setHeader('Access-Control-Allow-Origin', '*');
+    // res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+    // res.setHeader('Access-Control-Max-Age', 2592000);
+    const headers = {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
+        "Access-Control-Max-Age": 2592000, // 30 days
+        "Access-Control-Allow-Headers":"Origin, X-Requested-With, Content-Type, Accept",
+        /** add other headers as per requirement */
+        'Content-Type': 'application/json'
+      };
+
+
     if (req.url === '/test/details' && req.method === 'GET') {
         getStatistics(req, res)
     }
@@ -41,9 +54,16 @@ const server = http.createServer((req, res) => {
         const table = "studiescategory"
         getElement(req, res, county, month, year, table)
     } 
-    else {
-        res.writeHead(404, { 'Content-Type': 'application/json' })
-        res.end(JSON.stringify({ message: 'Route Not Found' }))
+    // else {
+    //     res.writeHead(404, { 'Content-Type': 'application/json' })
+    //     res.end(JSON.stringify({ message: 'Route Not Found' }))
+        
+    // }
+    else if (req.method === 'OPTIONS') {
+        res.writeHead(204,
+            headers);
+        res.end();
+        return;
     }
 })
 

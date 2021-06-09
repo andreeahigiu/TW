@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="#">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
     <script src="modules/script.js" defer></script>
+    <!-- <script src="modules/ajax.js" defer></script> -->
     <title>UnWe</title>
 </head>
 

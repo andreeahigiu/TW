@@ -1,17 +1,67 @@
 const tabs = document.querySelectorAll('[data-tab-target]')
 const tabContents = document.querySelectorAll('[data-tab-content]')
 
+
 // window.onprogress = function() {
 //     sleep(2000);
 // }
 
-window.onload = function() {
-    //loadData();
-    var users = JSON.parse(sessionStorage.getItem("users"));
-    console.log(users);
-    sessionStorage.clear();
+// window.onload = function() {
+//     //loadData();
+//     //await loadData();
+//     var users = JSON.parse(sessionStorage.getItem("users"));
+//     console.log(users);
+//     sessionStorage.clear();
 
+// }
+
+
+// window.onload = function loadData() {
+
+
+//     var xhr = new XMLHttpRequest();
+    
+//     // xhr.open('GET', 'https://api.github.com/users', true);
+//     xhr.open('GET', 'http://localhost:5000/details/age/iasi/1/2021', true);
+
+//     xhr.onload = function() {
+//         if (this.status == 200) {
+
+//             var users = JSON.parse(this.responseText);
+//             console.log(users);
+           
+//         }
+//     }
+
+//     const headers = {
+//         "Access-Control-Allow-Origin": "*",
+//         "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
+//         "Access-Control-Max-Age": 2592000, 
+//         "Access-Control-Allow-Headers":"Origin, X-Requested-With, Content-Type, Accept"
+//       };
+
+//     xhr.setRequestHeader(200, headers);
+
+//     xhr.send();
+
+// };
+
+window.onload = async function getData(){
+    let url = 'http://localhost:5000/details/environment/iasi/1/2021';
+    const response = await fetch(url, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        
+    });
+    let data = await response.json();
+    console.log(data);
+    return data;
 }
+
+//intr-un async : var result = await getData();
+// !verificam daca mi-a dat rezultatul: cu console sau !=null
 
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {

@@ -74,7 +74,7 @@ function findBy(county, monthVar, yearVar, table) {
                     console.log("NASOL" + county.toUpperCase())
                     console.log(err.stack);
                 }
-                console.log("let's see" + county)
+               
                 resolve(res)
                 
             });
