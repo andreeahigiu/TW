@@ -114,6 +114,7 @@ main {
 }
 
 .searched-items--second h4 {
+    display: block;
     margin-top: 4em;
 }
 
@@ -125,7 +126,8 @@ main {
 }
 
 .searched-items--filters div {
-    display: flex;
+    /* display: flex; */
+    display: none;
     height: auto;
     flex-direction: row;
     border: 3px solid #A2B29F;
@@ -178,10 +180,8 @@ main {
     padding-right: 30px;
 }
 
-
 .tab-content {
     border: 2px solid #A2B29F;
-  
 }
 
 .tab.active {

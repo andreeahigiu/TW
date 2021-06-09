@@ -122,25 +122,25 @@
             
 
             <div class="searched-items--second">
-                <h4> Filtre: </h4>
+                <h4> Filtru: </h4>
                 <div class="searched-items--filters">
-                    <div class="age-group">
+                    <div class="age-group" id = "age">
                         <img src="assets/person.png" alt="person">
                         <p>Grupe de vârstă</p>
                     </div>
-                    <div class="gender-group">
+                    <div class="gender-group" id = "gender">
                         <img src="assets/gender.png" alt="gender">
                         <p>Gen</p>
                     </div>
-                    <div class="education-group">
+                    <div class="education-group" id = "studies">
                         <img src="assets/education.png" alt="education">
                         <p>Nivel de educație</p>
                     </div>
-                    <div class="residence-group">
+                    <div class="residence-group" id = "environment">
                         <img src="assets/residence.png" alt="residence">
                         <p>Medii de rezidență</p>
                     </div>
-                    <div class="income-group">
+                    <div class="income-group" id = "compensation">
                         <img src="assets/income.png" alt="income">
                         <p>Tip de indemnizare</p>
                     </div>

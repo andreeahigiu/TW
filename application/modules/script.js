@@ -12,8 +12,8 @@ var year2;
 var filter;
 
 //The way to get variables from php to this js
-function getVarFromPhp(){
-    
+function getVarFromPhp() {
+
 
     county1 = document.getElementById("county1").value;
     county2 = document.getElementById("county2").value;
@@ -31,10 +31,10 @@ function getVarFromPhp(){
     year2 = p2[1];
 
     var months = ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"];
-    for(i=1; i <= months.length; i++){
-        if(month1 === months[i-1])
+    for (i = 1; i <= months.length; i++) {
+        if (month1 === months[i - 1])
             month1 = i;
-        if(month2 === months[i-1])
+        if (month2 === months[i - 1])
             month2 = i;
 
     }
@@ -43,31 +43,32 @@ function getVarFromPhp(){
 
 }
 
-window.onload = async function methodCalls(){
+window.onload = async function methodCalls() {
     //method for assigning teh variables
     getVarFromPhp();
 
     //method for calling the api
-   getData1();
-   getData2();
+    getData1();
+    getData2();
 
-   checking();
+    checking();
+    displayDivDemo(filter);
 }
 
-async function getData1(){
+async function getData1() {
     // let url = 'http://localhost:5000/details/environment/iasi/1/2021';
 
-    let url = 'http://localhost:5000/details/' + filter + '/' + county1 + '/' + month1 +'/' + year1;
+    let url = 'http://localhost:5000/details/' + filter + '/' + county1 + '/' + month1 + '/' + year1;
 
-    console.log("url1 composed of: " + filter + '/' + county1 + '/' + month1 +'/' + year1);
+    console.log("url1 composed of: " + filter + '/' + county1 + '/' + month1 + '/' + year1);
     const response = await fetch(url, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         headers: {
             'Content-Type': 'application/json'
         }
-        
+
     });
-    
+
 
     let data1 = await response.json();
 
@@ -79,20 +80,20 @@ async function getData1(){
     return data1;
 }
 
-async function getData2(){
+async function getData2() {
     // let url = 'http://localhost:5000/details/environment/iasi/1/2021';
     let url = 'http://localhost:5000/details/' + filter + '/' + county2 + '/' + month2 + '/' + year2;
 
-    console.log("url2 composed of: " + filter + '/' + county2 + '/' + month2 +'/' + year2);
+    console.log("url2 composed of: " + filter + '/' + county2 + '/' + month2 + '/' + year2);
     const response = await fetch(url, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         headers: {
             'Content-Type': 'application/json'
         }
-        
+
     });
     let data2 = await response.json();
-    console.log( data2);
+    console.log(data2);
 
     // calling some functions
 
@@ -106,6 +107,10 @@ function checking() {
 
 //intr-un async : var result = await getData();
 // !verificam daca mi-a dat rezultatul: cu console sau !=null
+
+function displayDivDemo(id) {
+    document.getElementById(id).style.display = 'flex';
+}
 
 
 tabs.forEach(tab => {
