@@ -11,6 +11,9 @@ var month2;
 var year2;
 var filter;
 
+var data1;
+var data2;
+
 //The way to get variables from php to this js
 function getVarFromPhp() {
 
@@ -70,9 +73,10 @@ async function getData1() {
     });
 
 
-    let data1 = await response.json();
+    data1 = await response.json();
 
     console.log(data1);
+    console.log("this is the JSON: " + data1["rows"][0]["after55"]);
 
     // calling some functions
 
@@ -94,6 +98,9 @@ async function getData2() {
     });
     let data2 = await response.json();
     console.log(data2);
+
+    data2 = await response.json();
+    console.log( data2);
 
     // calling some functions
 
