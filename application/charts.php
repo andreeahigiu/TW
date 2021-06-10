@@ -211,6 +211,10 @@
                 <img src="assets/hyperlink.svg" alt="hyperlink" height="15" width="15">
                 <h3>Documentație</h3>
             </a>
+            <a href="guide.html">
+                <img src="assets/hyperlink.svg" height="15" width="15" alt="link_icon">
+                <h3>Ghid</h3>
+            </a>
             <p>
                 Această aplicație constituie proiectul de la materia Tehnologii Web.
             </p>

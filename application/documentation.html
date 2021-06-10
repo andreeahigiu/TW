@@ -12,7 +12,7 @@
 <body>
     <header class="sticky-header">
         <img src="./assets/logo.png" class="logo-header" alt="logo-header">
-        <a href="index.php">
+        <a href="index.html">
             <img src="./assets/home-btn.png" class="home-btn" alt="home-btn">
         </a>
 
@@ -26,7 +26,7 @@
 
     <article typeof="schema:ScholarlyArticle">
         <h1 class="title">Unemployment Web Visualizer - Specificațiile Cerințelor Principale</h1>
-        <h3 class="version" property="schema:version">Versiunea 1.0</h3>
+        <h3 class="version" property="schema:version">Versiunea 2.0</h3>
         <div class="author" property="schema:author" typeof="schema:Person">
             <span property="schema:givenName">Andreea</span>
             <span property="schema:familyName">Higiu</span>
@@ -62,6 +62,10 @@
 
             <section typeof="article:articleSection">
                 <h2 class="chapter" typeof="thing:name">I. Introducere</h2>
+                <p>
+                    Prezentarea proiectului sub formă de videoclip poate fi găsită
+                    <a href="https://youtu.be/C0Luh62G2tc"> aici. </a>
+                </p>
                 <section>
                     <h3>1.1 Scop</h3>
                     <p>
@@ -479,23 +483,24 @@
             </section>
 
             <section typeof="article:articleSection ">
-            <h2 class="chapter" typeof="thing:name">VI. Progres</h2>
+                <h2 class="chapter" typeof="thing:name">VI. Progres</h2>
 
-            <section>
-                <h3>6.1 Detalierea progresului aplicației</h3>
-                <p>
-                    Progresul constă în implementarea următoarelor elemente:
-                </p>
-                <ul>
-                    <li>Dezvoltarea unui API propriu conform paradigmei REST utilizat pentru serviciul Web </li>
-                    <li>Crearea și hostarea pe <a href="https://www.heroku.com/" >Heroku</a> a unei baze de date ce conține statistici referitoare la rata șomajului, structurate în funcție de vârstă, gen, nivel de educație, tip de îndemnizare și studii: Datele sunt preluate de la adresa <a href="https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc"> https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc</a> </li>
-                    <li>Implementarea de requesturi AJAX către server</li>
-                    <li>Preluarea și manipularea datelor obținute ca rezultat al cererii către server</li>
-                    <li>Adaptarea si afișarea de diagrame în funcție de datele selectate în formular și de rezultatului obținut de la server </li>
-                    <li>Implementarea exportului de date în format CSV și PDF</li>
+                <section>
+                    <h3>6.1 Detalierea progresului aplicației</h3>
+                    <p>
+                        Progresul constă în implementarea următoarelor elemente:
+                    </p>
+                    <ul>
+                        <li>Dezvoltarea unui API propriu conform paradigmei REST utilizat pentru serviciul Web </li>
+                        <li>Crearea și hostarea pe <a href="https://www.heroku.com/">Heroku</a> a unei baze de date ce conține statistici referitoare la rata șomajului, structurate în funcție de vârstă, gen, nivel de educație, tip de îndemnizare și studii:
+                            Datele sunt preluate de la adresa <a href="https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc"> https://data.gov.ro/dataset?q=somaj&sort=metadata_modified+desc</a> </li>
+                        <li>Implementarea de requesturi AJAX către server</li>
+                        <li>Preluarea și manipularea datelor obținute ca rezultat al cererii către server</li>
+                        <li>Adaptarea si afișarea de diagrame în funcție de datele selectate în formular și de rezultatului obținut de la server </li>
+                        <li>Implementarea exportului de date în format CSV și PDF</li>
 
-                </ul>
-            </section>
+                    </ul>
+                </section>
 
             </section>
 
@@ -516,9 +521,13 @@
             </div>
         </section>
         <section class="documentatie ">
-            <a href="index.php ">
+            <a href="documentation.html">
                 <img src="./assets/hyperlink.svg " alt="hyperlink" height="15" width="15">
                 <h3>Documentație</h3>
+            </a>
+            <a href="guide.html">
+                <img src="assets/hyperlink.svg" height="15" width="15" alt="link_icon">
+                <h3>Ghid</h3>
             </a>
             <p>
                 Această aplicație constituie proiectul de la materia Tehnologii Web.
