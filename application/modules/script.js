@@ -96,11 +96,9 @@ async function getData2() {
         }
 
     });
-    let data2 = await response.json();
-    console.log(data2);
 
     data2 = await response.json();
-    console.log( data2);
+    console.log(data2);
 
     // calling some functions
 
@@ -144,6 +142,7 @@ function showDiv() {
     }
 }
 
+console.log("Ceva ciudat: " + getRowsForData1());
 var chart1 = document.getElementById('myChart');
 console.log(chart1);
 var myChart = new Chart(chart1, {
@@ -156,7 +155,8 @@ var myChart = new Chart(chart1, {
         ],
         datasets: [{
             label: 'Rata somajului pe tpate județele',
-            data: [20, 15, 12, 50, 41, 12, 33, 24, 14, 66, 23, 14, 25, 66, 87, 12, 34, 22, 12, 3, 10, 12, 56, 1, 3, 8, 13, 43, 77, 87, 23, 43, 65, 78, 15, 65, 9, 33, 65, 72, 44, 51, 62],
+            //data: [20, 15, 12, 50, 41, 12, 33, 24, 14, 66, 23, 14, 25, 66, 87, 12, 34, 22, 12, 3, 10, 12, 56, 1, 3, 8, 13, 43, 77, 87, 23, 43, 65, 78, 15, 65, 9, 33, 65, 72, 44, 51, 62],
+            data: getRowsForData1(),
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -222,3 +222,168 @@ let lineChart = new Chart(chart, {
         }]
     }
 });
+
+function getRowsForData1() {
+
+    if (filter == 'age') {
+        const rows = [
+            [county1, month1 + "-" + year1, "after55", data1["rows"][0]["after55"]],
+            [county1, month1 + "-" + year1, "between25and29", data1["rows"][0]["between25and29"]],
+            [county1, month1 + "-" + year1, "between30and39", data1["rows"][0]["between30and39"]],
+            [county1, month1 + "-" + year1, "between40and49", data1["rows"][0]["between40and49"]],
+            [county1, month1 + "-" + year1, "between50and55", data1["rows"][0]["between50and55"]],
+            [county1, month1 + "-" + year1, "under25", data1["rows"][0]["under25"]]
+        ];
+        return rows;
+    } else if (filter == 'gender') {
+        const rows = [
+            [county1, month1 + "-" + year1, "men", data1["rows"][0]["men"]],
+            [county1, month1 + "-" + year1, "women", data1["rows"][0]["women"]]
+        ];
+        return rows;
+    } else if (filter == 'studies') {
+        const rows = [
+            [county1, month1 + "-" + year1, "highschool", data1["rows"][0]["highschool"]],
+            [county1, month1 + "-" + year1, "middleschool", data1["rows"][0]["middleschool"]],
+            [county1, month1 + "-" + year1, "postsecondary", data1["rows"][0]["postsecondary"]],
+            [county1, month1 + "-" + year1, "primaryschool", data1["rows"][0]["primaryschool"]],
+            [county1, month1 + "-" + year1, "university", data1["rows"][0]["university"]],
+            [county1, month1 + "-" + year1, "vocational", data1["rows"][0]["vocational"]],
+            [county1, month1 + "-" + year1, "withoutschool", data1["rows"][0]["withoutschool"]]
+        ];
+        return rows;
+    } else if (filter == 'environment') {
+        const rows = [
+            [county1, month1 + "-" + year1, "menrural", data1["rows"][0]["menrural"]],
+            [county1, month1 + "-" + year1, "womenrural", data1["rows"][0]["womenrural"]],
+            [county1, month1 + "-" + year1, "totalrural", data1["rows"][0]["totalrural"]],
+            [county1, month1 + "-" + year1, "menurban", data1["rows"][0]["menurban"]],
+            [county1, month1 + "-" + year1, "womenurban", data1["rows"][0]["womenurban"]],
+            [county1, month1 + "-" + year1, "totalurban", data1["rows"][0]["totalurban"]]
+        ];
+        return rows;
+    } else if (filter == 'compensation') {
+        const rows = [
+            [county1, month1 + "-" + year1, "withcompensation", data1["rows"][0]["withcompensation"]],
+            [county1, month1 + "-" + year1, "withoutcompensation", data1["rows"][0]["withoutcompensation"]]
+        ];
+        return rows;
+    }
+
+}
+
+function getRowsForData2() {
+    if (filter == 'age') {
+        const rows = [
+            [county2, month2 + "-" + year2, "after55", data2["rows"][0]["after55"]],
+            [county2, month2 + "-" + year2, "between25and29", data2["rows"][0]["between25and29"]],
+            [county2, month2 + "-" + year2, "between30and39", data2["rows"][0]["between30and39"]],
+            [county2, month2 + "-" + year2, "between40and49", data2["rows"][0]["between40and49"]],
+            [county2, month2 + "-" + year2, "between50and55", data2["rows"][0]["between50and55"]],
+            [county2, month2 + "-" + year2, "under25", data2["rows"][0]["under25"]]
+        ];
+        return rows;
+    } else if (filter == 'gender') {
+        const rows = [
+            [county2, month2 + "-" + year2, "men", data2["rows"][0]["men"]],
+            [county2, month2 + "-" + year2, "women", data2["rows"][0]["women"]]
+        ];
+        return rows;
+    } else if (filter == 'studies') {
+        const rows = [
+            [county2, month2 + "-" + year2, "highschool", data2["rows"][0]["highschool"]],
+            [county2, month2 + "-" + year2, "middleschool", data2["rows"][0]["middleschool"]],
+            [county2, month2 + "-" + year2, "postsecondary", data2["rows"][0]["postsecondary"]],
+            [county2, month2 + "-" + year2, "primaryschool", data2["rows"][0]["primaryschool"]],
+            [county2, month2 + "-" + year2, "university", data2["rows"][0]["university"]],
+            [county2, month2 + "-" + year2, "vocational", data2["rows"][0]["vocational"]],
+            [county2, month2 + "-" + year2, "withoutschool", data2["rows"][0]["withoutschool"]]
+        ];
+        return rows;
+    } else if (filter == 'environment') {
+        const rows = [
+            [county2, month2 + "-" + year2, "menrural", data2["rows"][0]["menrural"]],
+            [county2, month2 + "-" + year2, "womenrural", data2["rows"][0]["womenrural"]],
+            [county2, month2 + "-" + year2, "totalrural", data2["rows"][0]["totalrural"]],
+            [county2, month2 + "-" + year2, "menurban", data2["rows"][0]["menurban"]],
+            [county2, month2 + "-" + year2, "womenurban", data2["rows"][0]["womenurban"]],
+            [county2, month2 + "-" + year2, "totalurban", data2["rows"][0]["totalurban"]]
+        ];
+        return rows;
+    } else if (filter == 'compensation') {
+        const rows = [
+            [county2, month2 + "-" + year2, "withcompensation", data2["rows"][0]["withcompensation"]],
+            [county2, month2 + "-" + year2, "withoutcompensation", data2["rows"][0]["withoutcompensation"]]
+        ];
+        return rows;
+    }
+
+}
+
+function exportToCsv() {
+    var rows;
+    if (data1 != 'undefined' && JSON.stringify(data2) != "\{\"message\":\"Statistic Not Found\"\}") {
+        console.log("Data2 is: " + JSON.stringify(data2));
+        rows = getRowsForData1().concat(getRowsForData2());
+    } else if (data1 != null) {
+        rows = getRowsForData1();
+    }
+    var processRow = function(row) {
+        var finalVal = '';
+        for (var j = 0; j < row.length; j++) {
+            var innerValue = row[j] === null ? '' : row[j].toString();
+            if (row[j] instanceof Date) {
+                innerValue = row[j].toLocaleString();
+            };
+            var result = innerValue.replace(/"/g, '""');
+            if (result.search(/("|,|\n)/g) >= 0)
+                result = '"' + result + '"';
+            if (j > 0)
+                finalVal += ',';
+            finalVal += result;
+        }
+        return finalVal + '\n';
+    };
+
+    var csvFile = '';
+    for (var i = 0; i < rows.length; i++) {
+        csvFile += processRow(rows[i]);
+    }
+
+    var blob = new Blob([csvFile], { type: 'text/csv;charset=utf-8;' });
+    if (navigator.msSaveBlob) { // IE 10+
+        navigator.msSaveBlob(blob, "statisctics.csv");
+    } else {
+        var link = document.createElement("a");
+        if (link.download !== undefined) { // feature detection
+            // Browsers that support HTML5 download attribute
+            var url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "statisctics.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    }
+}
+
+function exportToPdf() {
+    var columns = ['County', 'Date', 'Category', 'Numbers'];
+    var rows;
+    if (data1 != 'undefined' && JSON.stringify(data2) != "\{\"message\":\"Statistic Not Found\"\}") {
+        console.log("Data2 is: " + JSON.stringify(data2));
+        rows = getRowsForData1().concat(getRowsForData2());
+    } else if (data1 != null) {
+        rows = getRowsForData1();
+    }
+
+    const doc = new jsPDF()
+    console.log("1", rows);
+    console.log("2", columns);
+    doc.autoTable(columns, rows);
+    doc.save('statistic.pdf');
+};
+
+document.getElementById("save-CSV").addEventListener('click', exportToCsv);
+document.getElementById("save-PDF").addEventListener('click', exportToPdf);
