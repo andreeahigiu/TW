@@ -8,11 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/charts.css">
     <link rel="shortcut icon" href="#">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
     <script src="modules/script.js" defer></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script> -->
-    <!-- <script src="modules/ajax.js" defer></script> -->
+    <script src="node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.min.js"></script>
+
+
     <title>UnWe</title>
 </head>
 
@@ -178,13 +181,10 @@
             </div>
 
             <div class="save-options" style="display:none;" id="save--options">
-                <div class="save-SVG">
-                    <p>SVG</p>
-                </div>
                 <div class="save-CSV" id="save-CSV">
                     <p>CSV</p>
                 </div>
-                <div class="save-PDF">
+                <div class="save-PDF" id="save-PDF">
                     <p>PDF</p>
                 </div>
             </div>
