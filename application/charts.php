@@ -15,6 +15,7 @@
     <script src="modules/script.js" defer></script>
     <script src="node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.min.js"></script>
 
+
     <title>UnWe</title>
 </head>
 
@@ -155,20 +156,19 @@
 
         <section class="data-charts">
             <ul class="tabs">
-                <li data-tab-target="#chart1" class="active tab"> chart1 </li>
-                <li data-tab-target="#chart2" class="tab"> chart2 </li>
-                <li data-tab-target="#chart3" class="tab"> chart3 </li>
+                <li data-tab-target="#chart1" class="active tab"> Diagrama1 </li>
+                <li data-tab-target="#chart2" class="tab"> Diagrama2 </li>
+                <li data-tab-target="#chart3" class="tab"> Diagrama3 </li>
             </ul>
 
             <div class="tab-content">
                 <div id="chart1" data-tab-content class="active">
-                    <canvas id="myChart" width="400" height="300"></canvas>
+                    <canvas class="canvas1" id="myChart" width="400" height="300"></canvas>
                 </div>
                 <div id="chart2" data-tab-content>
                     <canvas id="secondChart" width="400" height="300"></canvas>
                 </div>
                 <div id="chart3" data-tab-content>
-                    <p>This is the chart3</p>
                     <canvas id="thirdChart" width="400" height="300"></canvas>
                 </div>
             </div>
