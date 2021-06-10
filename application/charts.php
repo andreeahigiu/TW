@@ -181,9 +181,6 @@
             </div>
 
             <div class="save-options" style="display:none;" id="save--options">
-                <div class="save-SVG" id="save-SVG" >
-                    <p>SVG</p>
-                </div>
                 <div class="save-CSV" id="save-CSV">
                     <p>CSV</p>
                 </div>
