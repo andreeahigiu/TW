@@ -10,6 +10,8 @@
     <link rel="shortcut icon" href="#">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
     <script src="modules/script.js" defer></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script> -->
     <!-- <script src="modules/ajax.js" defer></script> -->
     <title>UnWe</title>
 </head>
@@ -151,20 +153,19 @@
 
         <section class="data-charts">
             <ul class="tabs">
-                <li data-tab-target="#chart1" class="active tab"> chart1 </li>
-                <li data-tab-target="#chart2" class="tab"> chart2 </li>
-                <li data-tab-target="#chart3" class="tab"> chart3 </li>
+                <li data-tab-target="#chart1" class="active tab"> Diagrama1 </li>
+                <li data-tab-target="#chart2" class="tab"> Diagrama2 </li>
+                <li data-tab-target="#chart3" class="tab"> Diagrama3 </li>
             </ul>
 
             <div class="tab-content">
                 <div id="chart1" data-tab-content class="active">
-                    <canvas id="myChart" width="400" height="300"></canvas>
+                    <canvas class="canvas1" id="myChart" width="400" height="300"></canvas>
                 </div>
                 <div id="chart2" data-tab-content>
                     <canvas id="secondChart" width="400" height="300"></canvas>
                 </div>
                 <div id="chart3" data-tab-content>
-                    <p>This is the chart3</p>
                     <canvas id="thirdChart" width="400" height="300"></canvas>
                 </div>
             </div>
@@ -180,7 +181,7 @@
                 <div class="save-SVG">
                     <p>SVG</p>
                 </div>
-                <div class="save-CSV">
+                <div class="save-CSV" id="save-CSV">
                     <p>CSV</p>
                 </div>
                 <div class="save-PDF">

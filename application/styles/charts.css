@@ -293,6 +293,19 @@ footer {
     text-decoration: underline;
 }
 
+/* .active{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.canvas1{
+    width:100%;
+    height:fit-content;
+} */
+
+
 @media screen and (max-width: 1000px) {
     .searched-items--filters {
         display: flex;

@@ -14,6 +14,32 @@ var filter;
 var data1;
 var data2;
 
+var ageFields = ["after55", "between25and29", "between30and39", "between40and49", "between50and55", "under25" ];
+var compensationFields = ["withcompensation", "withoutcompensation"];
+var environmentFields = ["menrural", "menurban", "totalurban", "womenrural", "womenurban"];
+var genderFields = ["men", "women"];
+var studiesFields = ["highschool", "middleschool", "postsecondary", "primaryschool", "university", "vocational", "withoutschool"];
+
+var val1 = [];
+var val2 = [];
+
+var ageVal1 = [];
+var compensationVal1 = [];
+var environmentVal1 = [];
+var genderVal1 = [];
+var studiesVal1 = [];
+
+var ageVal2 = [];
+var compensationVal2 = [];
+var environmentVal2 = [];
+var genderVal2 = [];
+var studiesVal2 = [];
+
+var countyPeriod1;
+var countyPeriod2;
+
+
+
 //The way to get variables from php to this js
 function getVarFromPhp() {
 
@@ -54,9 +80,13 @@ window.onload = async function methodCalls() {
     getData1();
     getData2();
 
-    checking();
+    displayChart();
+
     displayDivDemo(filter);
 }
+
+
+var test;
 
 async function getData1() {
     // let url = 'http://localhost:5000/details/environment/iasi/1/2021';
@@ -78,9 +108,6 @@ async function getData1() {
     console.log(data1);
     console.log("this is the JSON: " + data1["rows"][0]["after55"]);
 
-    // calling some functions
-
-
     return data1;
 }
 
@@ -96,21 +123,14 @@ async function getData2() {
         }
 
     });
-    let data2 = await response.json();
-    console.log(data2);
-
     data2 = await response.json();
-    console.log( data2);
-
-    // calling some functions
-
+    console.log(data2);
 
     return data2;
 }
 
-function checking() {
-    console.log("just checking " + county2);
-}
+
+
 
 //intr-un async : var result = await getData();
 // !verificam daca mi-a dat rezultatul: cu console sau !=null
@@ -144,81 +164,254 @@ function showDiv() {
     }
 }
 
+async function displayChart(){
+    // data1["rows"][0]["after55"]
+    var request1 = await getData1();
+    var request2 = await getData2();
+    var fields = [];
+
+    console.log("ohno " + request1);
+    console.log("ohno " + request1["rows"][0]["after55"]);
+
+
+    if(filter === "age")
+    {
+        for(i = 0; i < ageFields.length; i++){
+            val1.push(request1["rows"][0][ageFields[i]]);
+            fields = ageFields;
+        }
+    }else if (filter == "compensation"){
+        for(i = 0; i < compensationFields.length; i++){
+            val1.push(request1["rows"][0][compensationFields[i]]);
+            fields = compensationFields;
+        }
+    }else if (filter == "gender"){
+        for(i = 0; i < genderFields.length; i++){
+            val1.push(request1["rows"][0][genderFields[i]]);
+            fields = genderFields;
+        }
+    }else if (filter == "studies"){
+        for(i = 0; i < studiesFields.length; i++){
+            val1.push(request1["rows"][0][studiesFields[i]]);
+            fields = studiesFields;
+        }
+    }else if (filter == "environment"){
+        for(i = 0; i < environmentFields.length; i++){
+            val1.push(request1["rows"][0][environmentFields[i]]);
+            fields = environmentFields;
+        }
+    }
+
+    if(county2 == 'unset'){
+        val2.push(0);
+    }
+    else
+    if(filter === "age")
+    {
+        for(i = 0; i < ageFields.length; i++){
+            val2.push(request2["rows"][0][ageFields[i]]);
+            fields = ageFields;
+        }
+    }else if (filter == "compensation"){
+        for(i = 0; i < compensationFields.length; i++){
+            val2.push(request2["rows"][0][compensationFields[i]]);
+            fields = compensationFields;
+        }
+    }else if (filter == "gender"){
+        for(i = 0; i < genderFields.length; i++){
+            val2.push(request2["rows"][0][genderFields[i]]);
+            fields = genderFields;
+        }
+    }else if (filter == "studies"){
+        for(i = 0; i < studiesFields.length; i++){
+            val2.push(request2["rows"][0][studiesFields[i]]);
+            fields = studiesFields;
+        }
+    }else if (filter == "environment"){
+        for(i = 0; i < environmentFields.length; i++){
+            val2.push(request2["rows"][0][environmentFields[i]]);
+            fields = environmentFields;
+        }
+    }
+
+    console.log("The first fields are as follows " + val1);
+    console.log("The second fields are as follows " + val2);
+  
+
+
+    //displaying the Chart for the values extracted from the API
 var chart1 = document.getElementById('myChart');
 console.log(chart1);
 var myChart = new Chart(chart1, {
     type: 'bar',
     data: {
-        labels: ['Arad', 'Iași', 'Cluj', 'Oradea', 'Bacău', 'Alba', 'Arad', 'Argeș', 'Bacău', 'Bihor', 'Bistrița Năsăud', 'Botoșani',
-            'Brăila', 'Brașov', 'Buzău', 'Călărași', 'Caraș-Severin', 'Cluj', 'Constanța', 'Covasna', 'Dâmbovița', 'Dolj', 'Galați', 'Giurgiu',
-            'Gorj', 'Harghita', 'Hunedoara', 'Ialomița', 'Iași', 'Ilfov', 'Maramureș', 'Mehedinti', 'București', 'Mureș', 'Neamț', 'Olt', 'Prahova',
-            'Sălaj', 'Satu Mare', 'Sibiu', 'Suceava', 'Teleorman', 'Timiș', 'Tulcea', 'Vâlcea', 'Vaslui', 'Vrancea'
-        ],
+        labels: fields,
         datasets: [{
-            label: 'Rata somajului pe tpate județele',
-            data: [20, 15, 12, 50, 41, 12, 33, 24, 14, 66, 23, 14, 25, 66, 87, 12, 34, 22, 12, 3, 10, 12, 56, 1, 3, 8, 13, 43, 77, 87, 23, 43, 65, 78, 15, 65, 9, 33, 65, 72, 44, 51, 62],
+            label: county1 + '-' + period1,
+            data: val1,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(100, 96, 170, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(153, 102, 255, 1)'
+
+            ],
+            borderWidth: 1
+        },
+        {
+            label: county2 + '-' + period2,
+            data: val2,
+            backgroundColor: [
+                'rgba(255, 99, 136, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)'
             ],
             borderWidth: 1
         }]
     },
     options: {
+        responsive: true,
         scales: {
             y: {
                 beginAtZero: true
             }
-        }
+        },
+        plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              verticalAlign: "center",
+              text: 'Diagrama 1'
+            }
+          }
     }
 });
 
-const chart = document.getElementById("secondChart");
-console.log(chart);
-let lineChart = new Chart(chart, {
-    type: 'line',
+var labelChart2=[];
+labelChart2.push(county1+'-'+period1);
+labelChart2.push(county2+'-'+period2);
+
+const chart2 = document.getElementById("secondChart");
+console.log(chart2);
+let pieChart = new Chart(chart2, {
+    type: 'pie',
+    // title:{
+    //     display:true,
+    //     text: "Title on bottom left",
+    //     verticalAlign: "center",
+    //     horizontalAlign: "center",
+    //   },
     data: {
-        labels: ["Ianuarie", "Februarie", "Martie", "Aprilie", "Mai"],
-        datasets: [{
-            label: ["Rata șomajului feminină"],
-            fill: false,
-            lineTension: 0.1,
-            data: [65, 59, 80, 81, 56],
-            fill: false,
-            borderColor: 'rgb(175, 48, 184)',
-        }, {
-            label: ["Rata șomajului masculină"],
-            fill: false,
-            lineTension: 0.1,
-            data: [77, 53, 18, 1, 66],
-            fill: false,
-            borderColor: 'rgb(85, 172, 192)',
-        }, {
-            label: "Șomeri îndemnizați",
-            fill: false,
-            lineTension: 0.1,
-            data: [77, 83, 8, 17, 36],
-            fill: false,
-            borderColor: 'rgb(225, 136, 55)',
-        }, {
-            label: "Șomeri neîndemnizați",
-            fill: false,
-            lineTension: 0.1,
-            data: [19, 8, 22, 33, 66],
-            fill: false,
-            borderColor: 'rgb(85, 138, 68)',
-        }]
-    }
+        labels: fields,
+        datasets: [
+          {
+            label: county1,
+            data: val1,
+            backgroundColor: ['rgba(228, 98, 62, 1)',  'rgba(181, 62, 228, 1)', 'rgba(104, 242, 182, 1)', 'rgba(104, 233, 242, 1)', 'rgba(134, 116, 235, 1)', 'rgba(242, 47, 112, 1)', 'rgba(245, 245, 111, 1)'],
+          },
+          {
+            label: county2,
+            data: val2,
+            backgroundColor: ['rgba(228, 98, 62, 1)',  'rgba(181, 62, 228, 1)', 'rgba(104, 242, 182, 1)', 'rgba(104, 233, 242, 1)', 'rgba(134, 116, 235, 1)', 'rgba(242, 47, 112, 1)', 'rgba(245, 245, 111, 1)'],
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            verticalAlign: "center",
+            text: 'Diagrama 2'
+          }
+        }
+      },
+      
+    //   options: {
+    //     plugins: {
+    //         plugins: {
+    //             datalabels: {
+    //               display: true,
+    //               backgroundColor: '#ccc',
+    //               borderRadius: 3,
+    //               font: {
+    //                 color: 'red',
+    //                 weight: 'bold',
+    //               }
+    //             },
+    //             doughnutlabel: {
+    //               labels: [{
+    //                 text: '550',
+    //                 font: {
+    //                   size: 20,
+    //                   weight: 'bold'
+    //                 }
+    //               }, {
+    //                 text: 'total'
+    //               }]
+    //             }
+    //           }
+    //         }
+    //     }
 });
+
+const chart3 = document.getElementById("thirdChart");
+//console.log(chart3);
+let lineChart = new Chart(chart3, {
+    type: 'bar',
+    data: {
+        labels: fields,
+        datasets: [{
+            label: county1 + '-' + period1,
+            data: val1,
+            backgroundColor: [
+                'rgba(228, 98, 62, 1)'
+            ],
+            borderColor: [
+                'rgba(228, 98, 62, 1)'
+
+            ],
+            borderWidth: 1
+        },
+        {
+            label: county2 + '-' + period2,
+            data: val2,
+            backgroundColor: [
+                'rgba(181, 62, 228, 1)'
+            ],
+            borderColor: [
+                'rgba(181, 62, 228, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        // Elements options apply to all of the options unless overridden in a dataset
+        // In this case, we are setting the border of each horizontal bar to be 2px wide
+        elements: {
+          bar: {
+            borderWidth: 2,
+          }
+        },
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'right',
+          },
+          title: {
+            display: true,
+            text: 'Diagrama 3'
+          }
+        }
+      },
+});
+
+}
+
