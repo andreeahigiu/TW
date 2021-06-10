@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/documentation.css">
+    <title>Guide</title>
+</head>
+
+<body>
+    <header class="sticky-header">
+        <img src="./assets/logo.png" class="logo-header" alt="logo-header">
+        <a href="index.html">
+            <img src="./assets/home-btn.png" class="home-btn" alt="home-btn">
+        </a>
+
+    </header>
+
+    <div class="back-btn">
+        <a href="index.html">
+            <img src="./assets/back.png" alt="back">
+        </a>
+    </div>
+
+    <article typeof="schema:ScholarlyArticle">
+        <h1 class="title">Unemployment Web Visualizer - Ghidul de utilizare al aplicaţiei </h1>
+        <h3 class="version" property="schema:version">Versiunea 2.0</h3>
+        <div class="author" property="schema:author" typeof="schema:Person">
+            <span property="schema:givenName">Andreea</span>
+            <span property="schema:familyName">Higiu</span>
+            <span property="schema:email">higiuandreea@gmail.com</span>
+        </div>
+        <div class="author" property="schema:author" typeof="schema:Person">
+            <span property="schema:givenName">Denisa-Ionela</span>
+            <span property="schema:familyName">Țîflea</span>
+            <span property="schema:email">tifleadenisa@gmail.com</span>
+        </div>
+        <h3 class="organization-name" property="schema:legalName">Facultatea de Informatică Iași</h3>
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <img src="assets/logo.png" style=" height: 5em; width: 7em; ">
+        </div>
+        <section typeof="article:articleBody">
+
+            <section typeof="article:articleSection">
+                <h2 class="chapter" typeof="thing:name"> Diagrama UML </h2>
+                <p>
+                    Diagrama UML ne prezintă succind modul de folosire al aplicației.
+                </p>
+                <div class="one-image ">
+                    <img src="./assets/guide-photos/diagram.png " alt="diagram">
+                </div>
+            </section>
+
+            <section typeof="article:articleSection">
+                <h2 class="chapter" typeof="thing:name">I. Setarea filtrelor</h2>
+                <p>Pentru a ne putea folosi de aplicaţie pentru scopul pentru care a fost creată, este necesar să completăm filtrele pe baza cărora vom primi o statistică legată de șomajul din România.
+                </p>
+                <p>
+                    Este necesar să completăm măcar căutarea generală (un județ și o perioadă).
+                </p>
+                <p>
+                    Opțional, putem compara situația șomajului din primul județ ales pe perioada stabilită cu un alt județ(sau acelasi) cu aceleasi perioade/perioade diferite.
+                </p>
+                <p>
+                    De asemenea, este recomandat să alegem un criteriu după care se realizează căutarea, altfel criteriul va fi predefinit.
+                </p>
+                <div class="two-images ">
+                    <img class="patruUnuUnu " src="./assets/guide-photos/4.1.1.png " alt="4.1.1">
+                    <img class="patruUnuDoi " src="./assets/guide-photos/4.1.2.png " alt="4.1.2">
+                </div>
+                <p>De asemenea vor putea completa zona de “Compara cu” pentru a realiza o comparație între elemente.</p>
+                <div class="one-image ">
+                    <img src="./assets/guide-photos/4.1.3.png " alt="4.1.3">
+                </div>
+            </section>
+
+            <section typeof="article:articleSection">
+                <h2 class="chapter" typeof="thing:name">II. Căutarea statisticii dorite</h2>
+                <p>
+                    Odata cu completarea filtrelor dorite, formularul poate fi trimis iar pagina de afișare a rezultatului va fi încărcată.
+                </p>
+                <div class="one-image ">
+                    <img src="./assets/guide-photos/4.3.2.png " alt="4.3.2">
+                </div>
+            </section>
+
+            <section typeof="article:articleSection">
+                <h2 class="chapter" typeof="thing:name">III. Alegerea diferitelor stiluri de afișsare</h2>
+                <p>
+                    După ce pagina pentru afișsarea rezultatelor s-a încărcat, putem vizualiza 3 tipuri de diagrame: vertical barchart, pie chart și horizontal pie chart.
+                </p>
+                <div class="two-images ">
+                    <img class="patruTreiCinci " src="./assets/guide-photos/4.3.5.png" style="width: 50%;" alt="4.1.1">
+                    <img class="patruTreiPatru" src="./assets/guide-photos/4.3.4.png " style="width: 40%;" alt="4.1.2">
+                </div>
+                <div class="one-image ">
+                    <img src="./assets/guide-photos/4.3.3.png " alt="4.3.3">
+                </div>
+            </section>
+
+            <section typeof="article:articleSection ">
+                <h2 class="chapter " typeof="thing:name ">
+                    IV. Exportarea datelor
+                </h2>
+                <p>
+                    Ultimul pas, care este opțional, este să exportăm datele obținute. Putem alege între 2 formate: CSV și PDF.
+                </p>
+                <div class="one-image ">
+                    <img src="./assets/guide-photos/4.3.7.png " alt="4.3.7">
+                </div>
+                <div class="one-image ">
+                    <img src="./assets/guide-photos/4.3.6.png " alt="4.3.6">
+                </div>
+            </section>
+
+
+    </article>
+
+    <footer>
+        <img src="./assets/logo.png " class="logo-footer " alt="logo">
+        <section class="contact ">
+            <h3>Contact</h3>
+            <div class="contact-person ">
+                <p>Higiu Andreea</p>
+                <address>higiuandreea@gmail.com</address>
+            </div>
+            <div class="contact-person ">
+                <p>Țîflea Denisa-Ionela</p>
+                <address>tifleadenisa@gmail.com</address>
+            </div>
+        </section>
+        <section class="documentatie ">
+            <a href="index.html ">
+                <img src="./assets/hyperlink.svg " alt="hyperlink" height="15" width="15">
+                <h3>Documentație</h3>
+            </a>
+            <p>
+                Această aplicație constituie proiectul de la materia Tehnologii Web.
+            </p>
+            <a href="https://www.info.uaic.ro/ ">
+                <img src="./assets/hyperlink.svg " alt="hyperlink" height="15" width="15"> Facultatea de informatică Iași
+            </a>
+        </section>
+    </footer>
+</body>
+
+</html>
